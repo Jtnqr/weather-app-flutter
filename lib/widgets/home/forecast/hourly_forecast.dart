@@ -4,7 +4,7 @@ class HourlyForecast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Replace with your hourly forecast content
-    return Center(
+    return const Center(
       child: Text("Hourly Forecast Content"),
     );
   }
