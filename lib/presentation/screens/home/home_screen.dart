@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:weather_app/controller/home/home_screen.dart';
+import 'package:weather_app/controller/home/home_controller.dart';
 import 'package:weather_app/widgets/home/forecast_min.dart';
 import 'package:weather_app/widgets/home/weather_max.dart';
 import 'package:weather_app/widgets/home/weather_min.dart';
 
 class HomeScreen extends StatelessWidget {
-  final HomeScreenController controller = Get.put(HomeScreenController());
+  final HomeScreenController homeScreenController =
+      Get.put(HomeScreenController());
   HomeScreen({super.key});
 
   @override
@@ -36,25 +37,27 @@ class HomeScreen extends StatelessWidget {
             top: true,
             child: Stack(
               children: [
-                Obx(() => controller.isExpanded.value
+                Obx(() => homeScreenController.isExpanded.value
                     ? const WeatherMax()
                     : const WeatherMin()),
-                Expanded(
-                  child: NotificationListener<DraggableScrollableNotification>(
-                    onNotification: (notification) {
-                      controller.setExpanded(notification.extent > 0.75);
-                      return false;
-                    },
-                    child: DraggableScrollableSheet(
-                        initialChildSize: 0.4,
-                        minChildSize: 0.4,
-                        maxChildSize: 0.85,
-                        snap: true,
-                        snapSizes: const [.4, .85],
-                        builder: (context, scrollController) {
-                          return ForecastMin(controller: scrollController);
-                        }),
-                  ),
+                NotificationListener<DraggableScrollableNotification>(
+                  onNotification: (notification) {
+                    homeScreenController
+                        .setExpanded(notification.extent > 0.75);
+                    return false;
+                  },
+                  child: DraggableScrollableSheet(
+                      initialChildSize: 0.4,
+                      minChildSize: 0.4,
+                      maxChildSize: 0.85,
+                      snap: true,
+                      snapSizes: const [.4, .85],
+                      builder: (context, scrollController) {
+                        return ForecastMin(
+                          scrollController: scrollController,
+                          homeScreenController: homeScreenController,
+                        );
+                      }),
                 ),
               ],
             ),
