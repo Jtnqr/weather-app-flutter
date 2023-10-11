@@ -15,7 +15,7 @@ class WeatherMin extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'Bengaluru',
+              'city_name',
               style: GoogleFonts.sofiaSans(
                 textStyle: const TextStyle(
                   color: Colors.white70,
@@ -26,7 +26,7 @@ class WeatherMin extends StatelessWidget {
               ),
             ),
             Text(
-              '19°C',
+              'temp',
               style: GoogleFonts.sofiaSans(
                 textStyle: const TextStyle(
                   color: Colors.white70,
@@ -36,7 +36,7 @@ class WeatherMin extends StatelessWidget {
               ),
             ),
             Text(
-              'Mostly Clear',
+              'description',
               style: GoogleFonts.sofiaSans(
                 textStyle: const TextStyle(
                   color: Colors.white60,
@@ -51,7 +51,7 @@ class WeatherMin extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'H:32°C',
+                  'H:high_temp°C',
                   style: GoogleFonts.sofiaSans(
                     textStyle: const TextStyle(
                       color: Colors.white70,
@@ -62,7 +62,7 @@ class WeatherMin extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 Text(
-                  'L:29°C',
+                  'L:low_temp°C',
                   style: GoogleFonts.sofiaSans(
                     textStyle: const TextStyle(
                       color: Colors.white70,

@@ -2,8 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:weather_app/controller/home/home_controller.dart';
-import 'package:weather_app/widgets/home/forecast/hourly_forecast.dart';
-import 'package:weather_app/widgets/home/forecast/weekly_forecast.dart';
+import 'package:weather_app/widgets/home/forecast/forecast_widget.dart';
 
 class ForecastMin extends StatelessWidget {
   final ScrollController scrollController;
@@ -62,15 +61,22 @@ class ForecastMin extends StatelessWidget {
                     indicatorSize: TabBarIndicatorSize.tab,
                     dividerColor: Colors.grey,
                   ),
-                  Expanded(
+                  SizedBox(
+                    height: 225,
                     child: TabBarView(
                       controller: homeScreenController.tabController,
                       children: const [
-                        HourlyForecast(),
-                        WeeklyForecast(),
+                        ForecastWidget(),
+                        ForecastWidget(),
                       ],
                     ),
                   ),
+                  const Expanded(
+                    child: SizedBox(
+                        // height: 300,
+                        // child: Text("data"),
+                        ),
+                  )
                 ],
               ),
             ),

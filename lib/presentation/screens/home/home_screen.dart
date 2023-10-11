@@ -47,17 +47,17 @@ class HomeScreen extends StatelessWidget {
                     return false;
                   },
                   child: DraggableScrollableSheet(
-                      initialChildSize: 0.4,
-                      minChildSize: 0.4,
-                      maxChildSize: 0.85,
-                      snap: true,
-                      snapSizes: const [.4, .85],
-                      builder: (context, scrollController) {
-                        return ForecastMin(
+                    initialChildSize: 0.35,
+                    minChildSize: 0.35,
+                    maxChildSize: 0.85,
+                    snap: true,
+                    snapSizes: const [.35, .85],
+                    builder: (context, scrollController) {
+                      return ForecastMin(
                           scrollController: scrollController,
-                          homeScreenController: homeScreenController,
-                        );
-                      }),
+                          homeScreenController: homeScreenController);
+                    },
+                  ),
                 ),
               ],
             ),

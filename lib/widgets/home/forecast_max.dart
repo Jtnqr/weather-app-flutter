@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
 
 class ForecastMax extends StatelessWidget {
-  const ForecastMax({super.key});
+  final ScrollController scrollController;
+
+  const ForecastMax({
+    required this.scrollController,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return CustomScrollView(
+      controller: scrollController,
+      slivers: [
+        SliverFillRemaining(
+          child: Scaffold(
+            body: Container(),
+          ),
+        )
+      ],
+    );
   }
 }
