@@ -15,7 +15,7 @@ class WeatherRemoteDataSource {
           "lat": lat,
           "units": "metric",
           "lang": "id",
-          "appid": "938a75d5cdde616ad496b3164055abda",
+          "appid": "",
         },
       );
 
