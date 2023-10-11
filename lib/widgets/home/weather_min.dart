@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:weather_app/controller/home/weather_controller.dart';
 
 class WeatherMin extends StatelessWidget {
-  const WeatherMin({super.key});
+  final weatherController = Get.put(WeatherController());
+
+  WeatherMin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,63 +18,63 @@ class WeatherMin extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              'city_name',
-              style: GoogleFonts.sofiaSans(
-                textStyle: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  height: 0,
-                ),
-              ),
-            ),
-            Text(
-              'temp',
-              style: GoogleFonts.sofiaSans(
-                textStyle: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 95,
-                  height: 0,
-                ),
-              ),
-            ),
-            Text(
-              'description',
-              style: GoogleFonts.sofiaSans(
-                textStyle: const TextStyle(
-                  color: Colors.white60,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                  height: 0,
-                ),
-              ),
-            ),
+            Obx(() => Text(
+                  weatherController.cityName,
+                  style: GoogleFonts.sofiaSans(
+                    textStyle: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      height: 0,
+                    ),
+                  ),
+                )),
+            Obx(() => Text(
+                  weatherController.temperature,
+                  style: GoogleFonts.sofiaSans(
+                    textStyle: const TextStyle(
+                      color: Colors.white70,
+                      fontSize: 95,
+                      height: 0,
+                    ),
+                  ),
+                )),
+            Obx(() => Text(
+                  weatherController.description,
+                  style: GoogleFonts.sofiaSans(
+                    textStyle: const TextStyle(
+                      color: Colors.white60,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                      height: 0,
+                    ),
+                  ),
+                )),
             Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'H:high_temp°C',
-                  style: GoogleFonts.sofiaSans(
-                    textStyle: const TextStyle(
-                      color: Colors.white70,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  ),
-                ),
+                Obx(() => Text(
+                      'H: ${weatherController.highTemp}°C',
+                      style: GoogleFonts.sofiaSans(
+                        textStyle: const TextStyle(
+                          color: Colors.white70,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
+                      ),
+                    )),
                 const SizedBox(width: 10),
-                Text(
-                  'L:low_temp°C',
-                  style: GoogleFonts.sofiaSans(
-                    textStyle: const TextStyle(
-                      color: Colors.white70,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                    ),
-                  ),
-                ),
+                Obx(() => Text(
+                      'L: ${weatherController.lowTemp}°C',
+                      style: GoogleFonts.sofiaSans(
+                        textStyle: const TextStyle(
+                          color: Colors.white70,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24,
+                        ),
+                      ),
+                    )),
               ],
             ),
           ],

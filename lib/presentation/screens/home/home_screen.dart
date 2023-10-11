@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Obx(() => homeScreenController.isExpanded.value
                     ? const WeatherMax()
-                    : const WeatherMin()),
+                    : WeatherMin()),
                 NotificationListener<DraggableScrollableNotification>(
                   onNotification: (notification) {
                     homeScreenController
